@@ -35,5 +35,9 @@ public class UserService {
         return SERVICE;
     }
 
+    public void logoutUser(User user) {
+        CONNECT_USERS.remove(user);
+    }
+
 
 }

@@ -18,4 +18,9 @@ public class StartServlet extends HttpServlet {
         StartManager.activateTables();
         req.getRequestDispatcher(JspGuide.to("start")).forward(req,resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(JspGuide.to("start")).forward(req,resp);
+    }
 }
