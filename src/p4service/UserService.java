@@ -4,6 +4,7 @@ import p2entity.User;
 import p3dao.UserDao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 
 public class UserService {
@@ -15,11 +16,11 @@ public class UserService {
     private UserService() {
     }
 
-    private final ArrayList<User> CONNECT_USERS = new ArrayList<>();
+    private final HashMap<Integer, User> CONNECT_USERS = new HashMap<>();
 
     public Optional<User> haveUser(String name, String pass) {
         Optional<User> user = userDao.findUser(name, pass);
-        user.ifPresent(CONNECT_USERS::add);
+        user.ifPresent(us -> CONNECT_USERS.put(us.getId(), us));
         return user;
     }
 
@@ -27,12 +28,20 @@ public class UserService {
         return userDao.findName(name);
     }
 
-    public ArrayList<User> getConnectUsers() {
+    public HashMap<Integer ,User> getConnectUsers() {
         return CONNECT_USERS;
     }
 
+    public Optional<String> isUserConnectById(int id) {
+        Optional<String> name = Optional.empty();
+        if(CONNECT_USERS.containsKey(id)) {
+            name = Optional.of(CONNECT_USERS.get(id).getName());
+        }
+        return name;
+    }
+
     public void logoutUser(User user) {
-        CONNECT_USERS.remove(user);
+        CONNECT_USERS.remove(user.getId());
     }
 
     public static UserService getInstance() {

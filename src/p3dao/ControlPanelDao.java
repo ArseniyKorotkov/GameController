@@ -2,7 +2,7 @@ package p3dao;
 
 import p1util.ConnectorManager;
 import p2entity.ControlButton;
-import p2entity.KeyboardButton;
+import p2entity.KeyboardButtonEntity;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -48,8 +48,8 @@ public class ControlPanelDao {
     private ControlPanelDao() {
     }
 
-    public Optional<KeyboardButton> getButtonValue(Integer userId, ControlButton controlButton) {
-        Optional<KeyboardButton> value = Optional.empty();
+    public Optional<KeyboardButtonEntity> getButtonValue(Integer userId, ControlButton controlButton) {
+        Optional<KeyboardButtonEntity> value = Optional.empty();
         try (Connection connection = ConnectorManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_BUTTON_VALUE_SQL)) {
 
@@ -89,14 +89,14 @@ public class ControlPanelDao {
     }
 
 
-    public void setButtonValue(KeyboardButton keyboardButton) {
+    public void setButtonValue(KeyboardButtonEntity keyboardButton) {
         try (Connection connection = ConnectorManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SET_BUTTON_VALUE_SQL)) {
 
-            System.out.println(keyboardButton.getUserId().get());
-            System.out.println(keyboardButton.name());
-            System.out.println(keyboardButton.getControlButton().get().name());
-            System.out.println("----");
+            System.out.println(keyboardButton.getUserId().get());   /****/
+            System.out.println(keyboardButton.name());      /*****/
+            System.out.println(keyboardButton.getControlButton().get().name()); /****/
+            System.out.println("----");                             /*****/
             preparedStatement.setInt(1, keyboardButton.getUserId().get());
             preparedStatement.setString(2, keyboardButton.getControlButton().get().name());
             preparedStatement.setString(3, keyboardButton.name());
@@ -123,8 +123,8 @@ public class ControlPanelDao {
         }
     }
 
-    public ArrayList<KeyboardButton> getAllButtonsValue() {
-        ArrayList<KeyboardButton> values = new ArrayList<>();
+    public ArrayList<KeyboardButtonEntity> getAllButtonsValue() {
+        ArrayList<KeyboardButtonEntity> values = new ArrayList<>();
         try (Connection connection = ConnectorManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(GET_All_BUTTONS_VALUE_SQL)) {
 
@@ -143,8 +143,8 @@ public class ControlPanelDao {
 
 
 
-    private KeyboardButton keyBuilder(ResultSet resultSet) throws SQLException {
-        return KeyboardButton.build(
+    private KeyboardButtonEntity keyBuilder(ResultSet resultSet) throws SQLException {
+        return KeyboardButtonEntity.build(
                 resultSet.getString(1),
                 resultSet.getInt(2),
                 resultSet.getString(3)
@@ -157,3 +157,5 @@ public class ControlPanelDao {
     }
 
 }
+
+

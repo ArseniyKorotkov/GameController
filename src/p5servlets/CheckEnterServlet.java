@@ -30,7 +30,7 @@ public class CheckEnterServlet extends HttpServlet {
                 session.setAttribute("pass_statement", "No such account");
             }
             resp.sendRedirect("control");
-        } else if (!service.getConnectUsers().contains(user.get())) {
+        } else if (!service.getConnectUsers().containsKey(user.get().getId())) {
             session.setAttribute("pass_statement", "Account is already used");
             resp.sendRedirect("control");
         } else {

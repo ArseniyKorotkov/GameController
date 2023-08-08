@@ -20,7 +20,7 @@ public class CheckRegistrationServlet extends HttpServlet {
         if(service.haveName(name)) {
             System.out.println("try new name"); /********/
         } else {
-            System.out.println("please, wait master`s answer");
+            System.out.println("please, wait master`s answer"); /*******/
         }
     }
 }

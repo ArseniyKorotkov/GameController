@@ -7,18 +7,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import p1util.JspGuide;
 import p4service.ButtonService;
+import p4service.UserService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/console_settings")
 public class ConsoleSettingsServlet extends HttpServlet {
 
-    ButtonService service = ButtonService.getInstance();
+    private final ButtonService buttonService = ButtonService.getInstance();
+    private final UserService userService = UserService.getInstance();
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("keyboard_buttons", service.getKeyboardButtons());
-        String substring = service.getKeyboardButtons().get(0).name().substring(3);
+        req.setAttribute("keyboard_buttons", buttonService.getKeyboardButtons());
+        req.setAttribute("connect_users", userService.getConnectUsers());
+
         req.getRequestDispatcher(JspGuide.to("console_settings")).forward(req, resp);
     }
 }
