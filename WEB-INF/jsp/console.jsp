@@ -1,40 +1,55 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.awt.Robot"%>
-<%@ page import="java.awt.AWTException"%>
 <html>
 <head>
     <title>Buttons</title>
 </head>
 <body>
 
-    <form action="/controller/buttons/butA"  method="post">
+    <form action="/controller/button"  method="post">
 
-        <button type="submit">Я кнопка</button>
+        <button type="submit">LEFT</button>
     </form>
 
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <form action="/controller/buttons/butS" method="post">
+    <form action="/controller/button" method="post">
         <h1>     </h1>
-        <button type="submit">Я кнопка</button>
+        <button type="submit">UP</button>
     </form>
 
-    <form action="/controller/buttons/butD" method="post">
+    <form action="/controller/button" method="post">
         <h1>     </h1>
-        <button type="submit">Я кнопка</button>
+        <button type="submit">DOWN</button>
     </form>
 
-    <br>
-    <br>
-    <br>
-    <br>
 
-    <form action="/controller/buttons/butW" method="post">
+
+    <form action="/controller/button" method="post">
         <h1>               </h1>
-        <button type="submit">Я кнопка</button>
+        <button type="submit">BUTTON_A</button>
+    </form>
+
+     <form action="/controller/button" method="post">
+        <h1>               </h1>
+        <button type="submit">BUTTON_B</button>
+    </form>
+
+    <form action="/controller/button" method="post">
+        <h1>               </h1>
+        <button type="submit">BUTTON_C</button>
+    </form>
+
+     <form action="/controller/button" method="post">
+         <h1>               </h1>
+        <button type="submit">BUTTON_D</button>
+    </form>
+
+    <form action="/controller/button" method="post">
+        <h1>               </h1>
+        <button type="submit">BUTTON_E</button>
+    </form>
+
+    <form action="/controller/button" method="post">
+        <h1>               </h1>
+        <button type="submit">BUTTON_F</button>
     </form>
 
 

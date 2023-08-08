@@ -7,16 +7,16 @@
 </head>
 <body>
 
-    <form action="console">
+    <form action="console" method="get">
         <button type="submit">CONSOLE</button>
     </form>
 
-    <form action="console">
+    <form action="console_settings" method="post">
         <button type="submit">CONSOLE SETTINGS</button>
     </form>
 
     <c:if test="${sessionScope.user.getRole().toString() == 'MASTER'}">
-        <form action="console">
+        <form action="console" method="post">
             <button type="submit">MASTER`S SETTINGS</button>
         </form>
     </c:if>

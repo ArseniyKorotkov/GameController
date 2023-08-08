@@ -11,9 +11,9 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
-@WebServlet("/buttons/butA")
-public class ButtonA extends HttpServlet {
-    private final Robot robot = Single.ROBOT.getRobot();
+@WebServlet("/button")
+public class Button extends HttpServlet {
+    private final static Robot robot = Single.ROBOT.getRobot();
     private boolean isPressedUp;
     private boolean isPressedDown;
     private boolean isPressedLeft;
@@ -28,7 +28,7 @@ public class ButtonA extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String but = "NUM_LOCK"; /******/
         try {
-            Field field = KeyEvent.class.getField("VK_" + but);
+            Field field = KeyEvent.class.getField(but);
             int buttonNumber = field.getInt(field);
 
             if(buttonNumber == KeyEvent.VK_UP) {

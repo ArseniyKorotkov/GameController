@@ -16,11 +16,15 @@ public final class UserDao {
     }
 
     private static final String CHECK_USER_SQL = """
-            SELECT * FROM console_user WHERE user_name = ? AND hash_pass = ?
+            SELECT *
+            FROM console_user
+            WHERE user_name = ? AND hash_pass = ?
             """;
 
     private static final String CHECK_NAME_SQL = """
-            SELECT id FROM console_user WHERE user_name = ?;
+            SELECT id
+            FROM console_user
+            WHERE user_name = ?
             """;
 
     public Optional<User> findUser(String name, String pass) {

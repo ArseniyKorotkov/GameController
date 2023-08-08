@@ -31,12 +31,12 @@ public class UserService {
         return CONNECT_USERS;
     }
 
-    public static UserService getInstance() {
-        return SERVICE;
-    }
-
     public void logoutUser(User user) {
         CONNECT_USERS.remove(user);
+    }
+
+    public static UserService getInstance() {
+        return SERVICE;
     }
 
 

@@ -26,15 +26,12 @@ public class CheckEnterServlet extends HttpServlet {
         if (user.isEmpty()) {
             if (service.haveName(name)) {
                 session.setAttribute("pass_statement", "Wrong password");
-                System.out.println("wrong pass"); /******/
             } else {
                 session.setAttribute("pass_statement", "No such account");
-                System.out.println("no such account"); /*******/
             }
             resp.sendRedirect("control");
         } else if (!service.getConnectUsers().contains(user.get())) {
             session.setAttribute("pass_statement", "Account is already used");
-            System.out.println("this account already use"); /********/
             resp.sendRedirect("control");
         } else {
             session.setAttribute("pass_statement", "Account is into system");

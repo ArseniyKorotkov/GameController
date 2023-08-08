@@ -5,11 +5,13 @@ public class User {
     private int id;
     private String name;
     private Role role;
+    private final ControlPanel controlPanel;
 
     public User(int id, String name, Role role) {
         this.id = id;
         this.name = name;
         this.role = role;
+        controlPanel = new ControlPanel();
     }
 
     public int getId() {
@@ -36,4 +38,7 @@ public class User {
         this.role = role;
     }
 
+    public ControlPanel getControlPanel() {
+        return controlPanel;
+    }
 }
