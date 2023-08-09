@@ -3,6 +3,7 @@ package p4service;
 import p2entity.ControlButton;
 import p2entity.KeyboardButtonEntity;
 import p3dao.ControlPanelDao;
+import p8exception.OptionalNullException;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,7 +18,6 @@ public class ButtonService {
 
     private final ControlPanelDao controlPanelDao = ControlPanelDao.getInstance();
     private final UserService userService = UserService.getInstance();
-    private HashSet<KeyboardButtonEntity> keyboardButtons;
 
     public ArrayList<KeyboardButtonEntity> getKeyboardButtonsArray() {
         return controlPanelDao.getAllButtonsValue();
@@ -27,11 +27,6 @@ public class ButtonService {
         ArrayList<String[]> responseArray = new ArrayList<>();
 
         for (KeyboardButtonEntity installedKey : keyboardButtons) {
-            System.out.println(installedKey.getControlButton() + " lalala2");
-        }
-
-        for (KeyboardButtonEntity installedKey : keyboardButtons) {
-            System.out.println(installedKey.getControlButton() + " lalala  " + installedKey.name());
             //who now is owner for this button
             Optional<Integer> keyOwnerId = controlPanelDao.getKeyUserId(installedKey.name());
 
@@ -42,28 +37,22 @@ public class ButtonService {
                 String keyOwnerName = userService.isUserConnectById(keyOwnerId.get()).get();
                 responseArray.add(new String[]{"Button " + installedKey.name().substring(3),
                         "   is busy from '" + keyOwnerName + "' player"});
-                System.out.println(installedKey.getUserId().get());     /*****/
-                System.out.println(keyOwnerId.get());        /*****/
-                System.out.println("nonono");               /******/
-                System.out.println("---------");
 
-            } else {
+            } else if(installedKey.getUserId().isPresent() && installedKey.getControlButton().isPresent()) {
 
                 Optional<KeyboardButtonEntity> lastButtonName = controlPanelDao.getButtonValue
                         (installedKey.getUserId().get(), installedKey.getControlButton().get());
-                if (lastButtonName.isPresent()) {
-                    System.out.println(lastButtonName.get().name() + " old name"); /********/
-                    controlPanelDao.deleteButtonValue(lastButtonName.get().name());
-                    System.out.println("pred Ok");                                      /*******/
-                }
+
+                lastButtonName.ifPresent(keyboardButtonEntity ->
+                        controlPanelDao.deleteButtonValue(keyboardButtonEntity.name()));
+
                 responseArray.add(new String[]{"Button " + installedKey.name().substring(3),
                         "   is installed like " + installedKey.getControlButton().get()});
-                System.out.println(keyOwnerId.get() + " hfhfhfhf");/*****/
-                System.out.println("OK"); /********/
                 controlPanelDao.setButtonValue(installedKey);
+            } else {
+                throw new OptionalNullException(KeyboardButtonEntity.class);
             }
         }
-        System.out.println("**************************************");
         return responseArray;
     }
 

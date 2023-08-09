@@ -30,7 +30,7 @@ public class AppDao {
                 UNIQUE (user_id, user_button)
             )
             
-            INSERT INTO console_button (button) VALUES           
+            INSERT INTO console_button (button) VALUES
             ('ENTER'),
             ('BACK_SPACE'),
             ('TAB'),
@@ -219,7 +219,7 @@ public class AppDao {
             ('COMPOSE'),
             ('ALT_GRAPH'),
             ('BEGIN'),
-            ('UNDEFINED');        
+            ('UNDEFINED');\040\040\040\040\040\040\040\040
             """;
 
     public static void activateTables() {

@@ -7,7 +7,6 @@ public class AppService {
     private static final AppService APP_SERVICE = new AppService();
 
     private AppService() {
-
     }
 
     public void activateTables() {

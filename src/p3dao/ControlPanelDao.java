@@ -3,6 +3,7 @@ package p3dao;
 import p1util.ConnectorManager;
 import p2entity.ControlButton;
 import p2entity.KeyboardButtonEntity;
+import p8exception.OptionalNullException;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -92,17 +93,15 @@ public class ControlPanelDao {
     public void setButtonValue(KeyboardButtonEntity keyboardButton) {
         try (Connection connection = ConnectorManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SET_BUTTON_VALUE_SQL)) {
+            if(keyboardButton.getUserId().isPresent() && keyboardButton.getControlButton().isPresent()) {
+                preparedStatement.setInt(1, keyboardButton.getUserId().get());
+                preparedStatement.setString(2, keyboardButton.getControlButton().get().name());
+                preparedStatement.setString(3, keyboardButton.name());
 
-            System.out.println(keyboardButton.getUserId().get());   /****/
-            System.out.println(keyboardButton.name());      /*****/
-            System.out.println(keyboardButton.getControlButton().get().name()); /****/
-            System.out.println("----");                             /*****/
-            preparedStatement.setInt(1, keyboardButton.getUserId().get());
-            preparedStatement.setString(2, keyboardButton.getControlButton().get().name());
-            preparedStatement.setString(3, keyboardButton.name());
-
-            preparedStatement.executeUpdate();
-
+                preparedStatement.executeUpdate();
+            } else {
+                throw new OptionalNullException(KeyboardButtonEntity.class);
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -32,28 +32,6 @@ public class SaveButtonSettingsServlet extends HttpServlet {
         Arrays.stream(ControlButton.values())
                 .forEach(button -> putIntoSet(button, req.getParameter(button.name().toLowerCase(Locale.ROOT))));
 
-//        String buttonUp = req.getParameter("button_up");
-//        String buttonDown = req.getParameter("button_down");
-//        String buttonLeft = req.getParameter("button_left");
-//        String buttonRight = req.getParameter("button_right");
-//        String buttonA = req.getParameter("button_a");
-//        String buttonB = req.getParameter("button_b");
-//        String buttonC = req.getParameter("button_c");
-//        String buttonD = req.getParameter("button_d");
-//        String buttonE = req.getParameter("button_e");
-//        String buttonF = req.getParameter("button_f");
-//
-//        putIntoSet(ControlButton.BUTTON_UP, buttonUp);
-//        putIntoSet(ControlButton.BUTTON_DOWN, buttonDown);
-//        putIntoSet(ControlButton.BUTTON_LEFT, buttonLeft);
-//        putIntoSet(ControlButton.BUTTON_RIGHT, buttonRight);
-//        putIntoSet(ControlButton.BUTTON_A, buttonA);
-//        putIntoSet(ControlButton.BUTTON_B, buttonB);
-//        putIntoSet(ControlButton.BUTTON_C, buttonC);
-//        putIntoSet(ControlButton.BUTTON_D, buttonD);
-//        putIntoSet(ControlButton.BUTTON_E, buttonE);
-//        putIntoSet(ControlButton.BUTTON_F, buttonF);
-
         checkBeforeSend();
 
         req.getSession().setAttribute("answers_message", responseArray);

@@ -6,8 +6,8 @@ import java.util.Optional;
 public class KeyboardButtonEntity {
 
     private String keyboardButtonName;
-    private Optional<Integer> userId = Optional.empty();
-    private Optional<ControlButton> controlButton = Optional.empty();
+    private Integer userId;
+    private ControlButton controlButton;
 
     private KeyboardButtonEntity(){
     }
@@ -17,23 +17,23 @@ public class KeyboardButtonEntity {
     }
 
     public Optional<Integer> getUserId() {
-        return userId;
+        return Optional.ofNullable(userId);
     }
 
     public void setUserId(Integer userId) {
-        this.userId = Optional.ofNullable(userId);
+        this.userId = userId;
     }
 
     public Optional<ControlButton> getControlButton() {
-        return controlButton;
+        return Optional.ofNullable(controlButton);
     }
 
     public void setControlButton(ControlButton controlButton) {
-        this.controlButton = Optional.ofNullable(controlButton);
+        this.controlButton = controlButton;
     }
 
     public boolean isUsed() {
-        return userId.isPresent() && controlButton.isPresent();
+        return getUserId().isPresent() && getControlButton().isPresent();
     }
 
     public static KeyboardButtonEntity build(String button, Integer userId, String userButton) {
