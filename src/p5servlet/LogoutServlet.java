@@ -1,4 +1,4 @@
-package p5servlets;
+package p5servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

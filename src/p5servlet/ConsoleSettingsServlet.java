@@ -1,4 +1,4 @@
-package p5servlets;
+package p5servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,7 +10,6 @@ import p4service.ButtonService;
 import p4service.UserService;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 @WebServlet("/console_settings")
 public class ConsoleSettingsServlet extends HttpServlet {
@@ -25,7 +24,7 @@ public class ConsoleSettingsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("keyboard_buttons", buttonService.getKeyboardButtons());
+        req.setAttribute("keyboard_buttons", buttonService.getKeyboardButtonsArray());
         req.setAttribute("connect_users", userService.getConnectUsers());
 
         req.getRequestDispatcher(JspGuide.to("console_settings")).forward(req, resp);

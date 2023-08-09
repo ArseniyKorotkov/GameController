@@ -1,4 +1,4 @@
-package p6filters;
+package p6filter;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

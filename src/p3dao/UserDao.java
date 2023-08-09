@@ -3,7 +3,7 @@ package p3dao;
 import p1util.ConnectorManager;
 import p2entity.Role;
 import p2entity.User;
-import p7quart.HashCoder;
+import p7coder.HashCoder;
 
 import java.sql.*;
 import java.util.Optional;
@@ -25,6 +25,10 @@ public final class UserDao {
             SELECT id
             FROM console_user
             WHERE user_name = ?
+            """;
+
+    private static final String REGISTRATION_NEW_USER_SQL = """
+            INSERT INTO console_user (password, user_name) VALUES (?, ?);
             """;
 
     public Optional<User> findUser(String name, String pass) {
@@ -58,6 +62,18 @@ public final class UserDao {
         throw new RuntimeException();
     }
 
+    public void registration(String name, String password) {
+
+        try (Connection connection = ConnectorManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(REGISTRATION_NEW_USER_SQL)) {
+            preparedStatement.setString(1, password);
+            preparedStatement.setString(2, name);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Optional<User> buildUser(ResultSet result) throws SQLException {
         Optional<User> user = Optional.empty();
         Role role = Role.VISITOR;
@@ -73,6 +89,8 @@ public final class UserDao {
         }
         return user;
     }
+
+
 
     public static UserDao getInstance() {
         return userDao;

@@ -1,4 +1,4 @@
-package p5servlets;
+package p5servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,11 +9,11 @@ import p1util.JspGuide;
 
 import java.io.IOException;
 
-@WebServlet("/menu")
-public class MenuServlet extends HttpServlet {
+@WebServlet("/regis")
+public class RegistrationServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(JspGuide.to("menu")).forward(req, resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher(JspGuide.to("registration")).forward(req, resp);
     }
 }

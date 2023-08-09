@@ -5,52 +5,69 @@
 </head>
 <body>
 
-    <form action="/controller/button"  method="post">
+    <table>
+        <tr>
+            <td>.</td>
 
-        <button type="submit">LEFT</button>
-    </form>
+            <td>
+                <form action="/controller/console" method="get">
+                    <button type="submit" name="button_name" value="button_up">UP</button>
+                </form>
+            </td>
 
-    <form action="/controller/button" method="post">
-        <h1>     </h1>
-        <button type="submit">UP</button>
-    </form>
+            <td>.</td>
 
-    <form action="/controller/button" method="post">
-        <h1>     </h1>
-        <button type="submit">DOWN</button>
-    </form>
+            <td>
+                <form action="/controller/console" method="get">
+                    <button type="submit" name="button_name" value="button_a">BUTTON_A</button>
+                </form>
+            </td>
+            <td>
+                 <form action="/controller/console" method="get">
+                    <button type="submit" name="button_name" value="button_b">BUTTON_B</button>
+                </form>
+            </td>
+            <td>
+                <form action="/controller/console" method="get">
+                    <button type="submit" name="button_name" value="button_c">BUTTON_C</button>
+                </form>
+            </td>
+        </tr>
 
 
-
-    <form action="/controller/button" method="post">
-        <h1>               </h1>
-        <button type="submit">BUTTON_A</button>
-    </form>
-
-     <form action="/controller/button" method="post">
-        <h1>               </h1>
-        <button type="submit">BUTTON_B</button>
-    </form>
-
-    <form action="/controller/button" method="post">
-        <h1>               </h1>
-        <button type="submit">BUTTON_C</button>
-    </form>
-
-     <form action="/controller/button" method="post">
-         <h1>               </h1>
-        <button type="submit">BUTTON_D</button>
-    </form>
-
-    <form action="/controller/button" method="post">
-        <h1>               </h1>
-        <button type="submit">BUTTON_E</button>
-    </form>
-
-    <form action="/controller/button" method="post">
-        <h1>               </h1>
-        <button type="submit">BUTTON_F</button>
-    </form>
+        <tr>
+            <td>
+                <form action="/controller/console"  method="get">
+                    <button type="submit" name="button_name" value="button_left">LEFT</button>
+                </form>
+            </td>
+            <td>
+                <form action="/controller/console" method="get">
+                    <button type="submit" name="button_name" value="button_down">DOWN</button>
+                </form>
+            </td>
+            <td>
+                <form action="/controller/console" method="get">
+                        <button type="submit" name="button_name" value="button_right">RIGHT</button>
+                </form>
+            </td>
+            <td>
+                <form action="/controller/console" method="get">
+                    <button type="submit"  name="button_name" value="button_d">BUTTON_D</button>
+                </form>
+            </td>
+            <td>
+                <form action="/controller/console" method="get">
+                    <button type="submit"  name="button_name" value="button_e">BUTTON_E</button>
+                </form>
+            </td>
+            <td>
+                <form action="/controller/console" method="get">
+                    <button type="submit" name="button_name" value="button_f">BUTTON_F</button>
+                </form>
+            </td>
+        </tr>
+    </table>
 
 
 </body>

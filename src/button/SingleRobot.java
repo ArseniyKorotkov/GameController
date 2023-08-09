@@ -1,10 +1,9 @@
-package buttons;
+package button;
 
 import java.awt.*;
 
-public enum Single {
+public enum SingleRobot {
     ROBOT;
-
 
     private static Robot robot;
     static {

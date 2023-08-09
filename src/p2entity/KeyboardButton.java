@@ -1,7 +1,5 @@
 package p2entity;
 
-import java.util.Optional;
-
 public enum KeyboardButton {
     VK_ENTER,
     VK_BACK_SPACE,
@@ -191,44 +189,4 @@ public enum KeyboardButton {
     VK_ALT_GRAPH,
     VK_BEGIN,
     VK_UNDEFINED;
-
-//    private Optional<Integer> userId = Optional.empty();
-//    private Optional<ControlButton> controlButton = Optional.empty();
-//
-//    public Optional<Integer> getUserId() {
-//        return userId;
-//    }
-//
-//    public void setUserId(Integer userId) {
-//        this.userId = Optional.ofNullable(userId);
-//    }
-//
-//    public Optional<ControlButton> getControlButton() {
-//        return controlButton;
-//    }
-//
-//    public void setControlButton(ControlButton controlButton) {
-//        this.controlButton = Optional.ofNullable(controlButton);
-//    }
-//
-//    public boolean isUsed() {
-//        return userId.isPresent() && controlButton.isPresent();
-//    }
-//
-//    public static KeyboardButton build(String button, Integer userId, String userButton) {
-//        KeyboardButton keyboardButton = KeyboardButton.valueOf(button);
-//        keyboardButton.setUserId(userId);
-//        Optional<String> stringOptional = Optional.ofNullable(userButton);
-//        stringOptional.ifPresent(key -> keyboardButton.setControlButton(ControlButton.valueOf(userButton)));
-//        return keyboardButton;
-//    }
-//
-//    public static KeyboardButton build(String button, Integer userId, ControlButton userButton) {
-//        KeyboardButton keyboardButton = KeyboardButton.valueOf(button);
-//        keyboardButton.setUserId(userId);
-//        keyboardButton.setControlButton(userButton);
-//        return keyboardButton;
-//    }
-
-
 }

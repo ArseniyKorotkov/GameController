@@ -1,12 +1,13 @@
-package p1util;
+package p3dao;
 
-import p7quart.HashCoder;
+import p1util.ConnectorManager;
+import p7coder.HashCoder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class StartManager {
+public class AppDao {
 
     private static final String CHECK_HAVE_TABLE_SQL = """
             SELECT EXISTS (SELECT id FROM console_user);

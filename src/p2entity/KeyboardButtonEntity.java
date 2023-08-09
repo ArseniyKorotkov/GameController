@@ -1,5 +1,6 @@
 package p2entity;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class KeyboardButtonEntity {
@@ -50,5 +51,19 @@ public class KeyboardButtonEntity {
         keyboardButton.setUserId(userId);
         keyboardButton.setControlButton(userButton);
         return keyboardButton;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        KeyboardButtonEntity entity = (KeyboardButtonEntity) o;
+        return Objects.equals(keyboardButtonName, entity.keyboardButtonName);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(keyboardButtonName, userId, controlButton);
     }
 }

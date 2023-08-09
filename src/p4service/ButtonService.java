@@ -1,6 +1,6 @@
 package p4service;
 
-import p2entity.KeyboardButton;
+import p2entity.ControlButton;
 import p2entity.KeyboardButtonEntity;
 import p3dao.ControlPanelDao;
 
@@ -17,13 +17,13 @@ public class ButtonService {
 
     private final ControlPanelDao controlPanelDao = ControlPanelDao.getInstance();
     private final UserService userService = UserService.getInstance();
+    private HashSet<KeyboardButtonEntity> keyboardButtons;
 
-    public ArrayList<KeyboardButtonEntity> getKeyboardButtons() {
+    public ArrayList<KeyboardButtonEntity> getKeyboardButtonsArray() {
         return controlPanelDao.getAllButtonsValue();
     }
 
     public ArrayList<String[]> saveConsoleButtonsValues(HashSet<KeyboardButtonEntity> keyboardButtons) {
-
         ArrayList<String[]> responseArray = new ArrayList<>();
 
         for (KeyboardButtonEntity installedKey : keyboardButtons) {
@@ -67,28 +67,15 @@ public class ButtonService {
         return responseArray;
     }
 
+    public Optional<KeyboardButtonEntity> getButtonValue(Integer userId, String controlButton) {
+        return controlPanelDao.getButtonValue(userId, ControlButton.valueOf(controlButton));
+    }
+
+
 
     public static ButtonService getInstance() {
         return BUTTON_SERVICE;
     }
-
-/*    public static void main(String[] args) {
-        HashSet<KeyboardButton> testHash = new HashSet<>();
-        ButtonService service = ButtonService.getInstance();
-
-        testHash.add(KeyboardButton.build("VK_1", 2, ControlButton.BUTTON_A));
-        testHash.add(KeyboardButton.build("VK_5", 2, ControlButton.BUTTON_B));
-        testHash.add(KeyboardButton.build("VK_3", 2, ControlButton.BUTTON_C));
-        testHash.add(KeyboardButton.build("VK_4", 2, ControlButton.BUTTON_D));
-        testHash.add(KeyboardButton.build("VK_2", 2, ControlButton.BUTTON_E));
-        testHash.add(KeyboardButton.build("VK_6", 2, ControlButton.BUTTON_F));
-        testHash.add(KeyboardButton.build("VK_0", 2, ControlButton.BUTTON_UP));
-        testHash.add(KeyboardButton.build("VK_8", 2, ControlButton.BUTTON_DOWN));
-        testHash.add(KeyboardButton.build("VK_9", 2, ControlButton.BUTTON_LEFT));
-        testHash.add(KeyboardButton.build("VK_7", 2, ControlButton.BUTTON_RIGHT));
-
-        service.saveConsoleButtonsValues(testHash);
-    }*/
 
 }
 

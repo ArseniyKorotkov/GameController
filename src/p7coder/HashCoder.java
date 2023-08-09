@@ -1,4 +1,4 @@
-package p7quart;
+package p7coder;
 
 public final class HashCoder {
 
