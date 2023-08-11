@@ -13,19 +13,19 @@
 
                 <tr>
                     <td>
-                        Users:
+                        <h1>Users::::</h1>
                     </td>
 
                     <td>
-                        Save:
+                        <h1>Save::::<h1>
                     </td>
 
                     <td>
-                        Like master:
+                        <h1>Like master::</h1>
                     </td>
 
                     <td>
-                        Delete application:
+                        <h1>Delete application</h1>
                     </td>
 
 
@@ -34,19 +34,19 @@
                 <c:forEach var="user" items="${requestScope.installed_users}">
                     <tr>
                         <td>
-                            ${user}
+                            <h1>${user}<h1>
                         </td>
 
                         <td>
-                            <input type="checkBox" name="${user}_save">
+                            <input type="checkBox"  style="width:60px;height:60px" name="${user}_save">
                         </td>
 
                         <td>
-                            <input type="checkBox" name="${user}_master">
+                            <input type="checkBox"  style="width:60px;height:60px" name="${user}_master">
                         </td>
 
                         <td>
-                            <input type="checkBox" name="${user}_delete">
+                            <input type="checkBox" style="width:60px;height:60px"  name="${user}_delete">
                         </td>
 
                     </tr>
@@ -54,16 +54,14 @@
             </table>
 
 
-            <button type="submit">APPLY</button>
+            <button type="submit" style="width:180px;height:60px">APPLY</button>
 
         </form>
     </c:if>
 
     <c:if test="${requestScope.installed_users.isEmpty()}">
-        No registration requests
+        <h1>No registration requests</h1>
     </c:if>
-
-
 
 </body>
 </html>

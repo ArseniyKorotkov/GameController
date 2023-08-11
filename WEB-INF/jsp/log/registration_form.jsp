@@ -13,19 +13,19 @@
 
             <table>
                 <tr>
-                    <td>Name:</td>
+                    <td> <h1>Name: <h1></td>
                     <td>
                         <label for="name">
-                            <input type="text" name="userName" id="userNameId" required>
+                            <input type="text" style="width:240px;height:36px" name="userName" id="userNameId" required>
                         </label>
                     </td>
                 </tr>
 
                 <tr>
-                    <td>Password:</td>
+                    <td> <h1>Password: </h1> </td>
                     <td>
                         <label for="pass">
-                            <input type="password" name="userPass" id="userPassId" required>
+                            <input type="password" style="width:240px;height:36px" name="userPass" id="userPassId" required>
                         </label>
                     </td>
                 </tr>
@@ -34,18 +34,18 @@
             <br>
 
 
-            <button type="submit">SAVE</button>
+            <button type="submit" style="width:180px;height:60px">SAVE</button>
 
         </form>
     </c:if>
 
-    ${sessionScope.answer_for_request_log}
+    <h1>${sessionScope.answer_for_request_log}</h1>
 
 
 
     <c:if test="${requestScope.verdict}">
         <form action="/controller/control">
-          <button type="submit">START PAGE</button>
+          <button type="submit" style="width:180px;height:60px">START PAGE</button>
         </form>
     </c:if>
 

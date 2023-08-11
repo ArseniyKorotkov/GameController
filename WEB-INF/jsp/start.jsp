@@ -16,19 +16,23 @@
 
                 <table>
                     <tr>
-                        <td>Name:</td>
+                        <td>
+                            <h1>Name:</h1>
+                        </td>
                         <td>
                             <label for="name">
-                                <input type="text" name="userName" id="userNameId" required>
+                                <input type="text" style="width:240px;height:36px" name="userName" id="userNameId" required>
                             </label>
                         </td>
                     </tr>
 
                     <tr>
-                        <td>Password:</td>
+                        <td>
+                            <h1>Password:</h1>
+                        </td>
                         <td>
                             <label for="pass">
-                                <input type="password" name="userPass" id="userPassId" required>
+                                <input type="password" style="width:240px;height:36px" name="userPass" id="userPassId" required>
                             </label>
                         </td>
                     </tr>
@@ -36,14 +40,14 @@
 
                 <p> ${sessionScope.pass_statement} </p>
 
-                <button type="submit">LOGIN</button>
+                <button type="submit" style="width:120px;height:60px">LOGIN</button>
 
             </form>
 
 
             <tr>
                 <form action="/controller/registration_form" method="get">
-                    <button type="submit">REGISTRATION</button>
+                    <button type="submit" style="width:120px;height:60px">REGISTRATION</button>
                 </form>
             </tr>
 
@@ -51,20 +55,20 @@
 
         <c:when test="${sessionScope.user != null}">
 
-            <p>User '${sessionScope.user.name}' in system </p>
+            <h1>User '${sessionScope.user.name}' in system </h1>
 
             <table>
 
                 <tr>
                     <td>
                         <form action="/controller/menu" method="get">
-                            <button type="submit">MENU</button>
+                            <button type="submit" style="width:120px;height:60px">MENU</button>
                         </form>
                     </td>
 
                     <td>
                         <form action="/controller/logout" method="post">
-                            <button type="submit">LOGOUT</button>
+                            <button type="submit" style="width:120px;height:60px">LOGOUT</button>
                         </form>
                     </td>
                 </tr>
