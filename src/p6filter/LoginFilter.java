@@ -12,15 +12,15 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebFilter({"/button", "/console", "/menu"})
-public class Filter implements jakarta.servlet.Filter {
+public class LoginFilter implements jakarta.servlet.Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         HttpSession session = httpRequest.getSession();
-        if(session.getAttribute("user") != null) {
+        if (session.getAttribute("user") != null) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
-            ((HttpServletResponse)servletResponse).sendRedirect("/controller/control");
+            ((HttpServletResponse) servletResponse).sendRedirect("/controller/control");
         }
 
     }

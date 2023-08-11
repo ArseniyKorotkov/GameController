@@ -1,4 +1,4 @@
-package p5servlet;
+package p5servlet.usageApplicatonServlet.menuContent;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -27,6 +27,6 @@ public class ConsoleSettingsServlet extends HttpServlet {
         req.setAttribute("keyboard_buttons", buttonService.getKeyboardButtonsArray());
         req.setAttribute("connect_users", userService.getConnectUsers());
 
-        req.getRequestDispatcher(JspGuide.to("console_settings")).forward(req, resp);
+        req.getRequestDispatcher(JspGuide.to("usage","console_settings")).forward(req, resp);
     }
 }

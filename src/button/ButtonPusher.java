@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 public final class ButtonPusher {
     private final static Robot robot = SingleRobot.ROBOT.getRobot();
     private final static ButtonPusher button = new ButtonPusher();
+
     private ButtonPusher() {
 
     }
@@ -18,7 +19,6 @@ public final class ButtonPusher {
 
             Field field = KeyEvent.class.getField(keyboardButton.name());
             int buttonNumber = field.getInt(field);
-            System.out.println(KeyEvent.getKeyText(buttonNumber) + " yeeeees!");
             robot.keyPress(buttonNumber);
             robot.keyRelease(buttonNumber);
         } catch (IllegalAccessException | NoSuchFieldException e) {

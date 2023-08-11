@@ -219,7 +219,7 @@ public class AppDao {
             ('COMPOSE'),
             ('ALT_GRAPH'),
             ('BEGIN'),
-            ('UNDEFINED');\040\040\040\040\040\040\040\040
+            ('UNDEFINED');
             """;
 
     public static void activateTables() {

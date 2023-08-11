@@ -1,4 +1,4 @@
-package p5servlet;
+package p5servlet.usageApplicatonServlet.menuContent;
 
 import button.ButtonPusher;
 import jakarta.servlet.ServletException;
@@ -31,7 +31,7 @@ public class ConsoleServlet extends HttpServlet {
             buttonValue.ifPresent(buttonPusher::push);
         }
 
-        req.getRequestDispatcher(JspGuide.to("console")).forward(req, resp);
+        req.getRequestDispatcher(JspGuide.to("usage","console")).forward(req, resp);
     }
 
 }

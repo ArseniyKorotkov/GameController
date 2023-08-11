@@ -16,6 +16,7 @@ public class StartServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().setAttribute("answer_for_request_log", "");
         appService.activateTables();
         req.getRequestDispatcher(JspGuide.to("start")).forward(req,resp);
     }

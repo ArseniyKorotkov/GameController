@@ -15,8 +15,8 @@
         <button type="submit">CONSOLE SETTINGS</button>
     </form>
 
-    <c:if test="${sessionScope.user.getRole().toString() == 'MASTER'}">
-        <form action="console" method="post">
+    <c:if test="${sessionScope.user.isMaster()}">
+        <form action="registration_requests" method="get">
             <button type="submit">MASTER`S SETTINGS</button>
         </form>
     </c:if>

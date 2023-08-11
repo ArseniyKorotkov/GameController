@@ -246,6 +246,7 @@ WHERE button like 'VK_ENTER';]]></console>
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="d7808ba7-5340-417b-be3e-04c9255cfa76" dataset="public.users" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="d7808ba7-5340-417b-be3e-04c9255cfa76" dataset="public.console_button" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="d7808ba7-5340-417b-be3e-04c9255cfa76" dataset="public.console_user" active-filter-id="EMPTY_FILTER" />
   </component>

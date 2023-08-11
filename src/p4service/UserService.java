@@ -17,10 +17,12 @@ public class UserService {
 
     private final HashMap<Integer, User> CONNECT_USERS = new HashMap<>();
 
-    public Optional<User> haveUser(String name, String pass) {
-        Optional<User> user = userDao.findUser(name, pass);
-        user.ifPresent(us -> CONNECT_USERS.put(us.getId(), us));
-        return user;
+    public Optional<User> getUser(String name, String pass) {
+        return userDao.findUser(name, pass);
+    }
+
+    public void addUserToConnect(User user) {
+        CONNECT_USERS.put(user.getId(), user);
     }
 
     public boolean haveName(String name) {
@@ -37,6 +39,10 @@ public class UserService {
             name = Optional.of(CONNECT_USERS.get(id).getName());
         }
         return name;
+    }
+
+    public void saveUser(String name, String password, boolean master) {
+        userDao.registration(name, password, master);
     }
 
     public void logoutUser(User user) {

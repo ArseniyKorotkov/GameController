@@ -42,7 +42,7 @@
 
 
             <tr>
-                <form action="/controller/regis" method="post">
+                <form action="/controller/registration_form" method="get">
                     <button type="submit">REGISTRATION</button>
                 </form>
             </tr>

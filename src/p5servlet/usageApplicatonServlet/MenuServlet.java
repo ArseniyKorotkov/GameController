@@ -1,4 +1,4 @@
-package p5servlet;
+package p5servlet.usageApplicatonServlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,6 +14,6 @@ public class MenuServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(JspGuide.to("menu")).forward(req, resp);
+        req.getRequestDispatcher(JspGuide.to("usage","menu")).forward(req, resp);
     }
 }

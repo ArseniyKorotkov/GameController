@@ -1,6 +1,5 @@
-package p5servlet;
+package p5servlet.usageApplicatonServlet;
 
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,11 +17,11 @@ public class CheckEnterServlet extends HttpServlet {
     private final UserService service = UserService.getInstance();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         HttpSession session = req.getSession();
-        String name = req.getParameter("userName");
+        String name = req.getParameter("userName").trim();
         String password = req.getParameter("userPass");
-        Optional<User> user = service.haveUser(name, password);
+        Optional<User> user = service.getUser(name, password);
         if (user.isEmpty()) {
             if (service.haveName(name)) {
                 session.setAttribute("pass_statement", "Wrong password");
@@ -30,12 +29,13 @@ public class CheckEnterServlet extends HttpServlet {
                 session.setAttribute("pass_statement", "No such account");
             }
             resp.sendRedirect("control");
-        } else if (!service.getConnectUsers().containsKey(user.get().getId())) {
+        } else if (service.getConnectUsers().containsKey(user.get().getId())) {
             session.setAttribute("pass_statement", "Account is already used");
             resp.sendRedirect("control");
         } else {
             session.setAttribute("pass_statement", "Account is into system");
             session.setAttribute("user", user.get());
+            service.addUserToConnect(user.get());
             resp.sendRedirect("menu");
         }
     }

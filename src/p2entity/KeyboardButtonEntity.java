@@ -64,6 +64,6 @@ public class KeyboardButtonEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(keyboardButtonName, userId, controlButton);
+        return Objects.hash(keyboardButtonName);
     }
 }

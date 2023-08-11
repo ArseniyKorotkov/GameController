@@ -28,7 +28,7 @@ public final class UserDao {
             """;
 
     private static final String REGISTRATION_NEW_USER_SQL = """
-            INSERT INTO console_user (password, user_name) VALUES (?, ?);
+            INSERT INTO console_user (user_name, hash_pass,  master) VALUES (?, ?, ?);
             """;
 
     public Optional<User> findUser(String name, String pass) {
@@ -62,12 +62,13 @@ public final class UserDao {
         throw new RuntimeException();
     }
 
-    public void registration(String name, String password) {
+    public void registration(String name, String password, boolean master) {
 
         try (Connection connection = ConnectorManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(REGISTRATION_NEW_USER_SQL)) {
-            preparedStatement.setString(1, password);
-            preparedStatement.setString(2, name);
+            preparedStatement.setString(1, name);
+            preparedStatement.setInt(2, HashCoder.getHash(password));
+            preparedStatement.setBoolean(3, master);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -76,16 +77,12 @@ public final class UserDao {
 
     private Optional<User> buildUser(ResultSet result) throws SQLException {
         Optional<User> user = Optional.empty();
-        Role role = Role.VISITOR;
 
         if (result.next()) {
-            if(result.getBoolean(4)) {
-                role = Role.MASTER;
-            }
             user = Optional.of(new User(
                     result.getInt(1),
                     result.getString(2),
-                    role));
+                    result.getBoolean(4)));
         }
         return user;
     }

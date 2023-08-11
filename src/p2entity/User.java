@@ -4,12 +4,12 @@ public class User {
 
     private int id;
     private String name;
-    private Role role;
+    private boolean master;
 
-    public User(int id, String name, Role role) {
+    public User(int id, String name, boolean role) {
         this.id = id;
         this.name = name;
-        this.role = role;
+        this.master = role;
     }
 
     public int getId() {
@@ -28,12 +28,12 @@ public class User {
         this.name = name;
     }
 
-    public Role getRole() {
-        return role;
+    public boolean isMaster() {
+        return master;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setMaster(boolean master) {
+        this.master = master;
     }
 
 }
