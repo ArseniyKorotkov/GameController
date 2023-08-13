@@ -15,6 +15,10 @@
         <button type="submit" style="width:180px;height:60px">CONSOLE SETTINGS</button>
     </form>
 
+    <form action="change_pass_form" method="post">
+        <button type="submit" style="width:180px;height:60px">CHANGE PASSWORD</button>
+    </form>
+
     <c:if test="${sessionScope.user.isMaster()}">
         <form action="registration_requests" method="get">
             <button type="submit" style="width:180px;height:60px">MASTER`S SETTINGS</button>

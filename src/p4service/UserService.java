@@ -45,6 +45,10 @@ public class UserService {
         userDao.registration(name, password, master);
     }
 
+    public void changePass(String name, int hashNewPass) {
+        userDao.changePass(name, hashNewPass);
+    }
+
     public void logoutUser(User user) {
         CONNECT_USERS.remove(user.getId());
     }

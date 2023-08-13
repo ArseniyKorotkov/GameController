@@ -31,6 +31,12 @@ public final class UserDao {
             INSERT INTO console_user (user_name, hash_pass,  master) VALUES (?, ?, ?);
             """;
 
+    private static final String CHANGE_PASSWORD_SQL = """
+            UPDATE console_user
+            SET hash_pass = ?
+            WHERE user_name = ?
+            """;
+
     public Optional<User> findUser(String name, String pass) {
         try (Connection connection = ConnectorManager.getConnection();
              PreparedStatement preparedStatementUser = connection.prepareStatement(CHECK_USER_SQL)) {
@@ -73,6 +79,19 @@ public final class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void changePass(String name, int hashNewPass) {
+        try (Connection connection = ConnectorManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(CHANGE_PASSWORD_SQL)) {
+            preparedStatement.setInt(1, hashNewPass);
+            preparedStatement.setString(2,name);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private Optional<User> buildUser(ResultSet result) throws SQLException {
