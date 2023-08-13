@@ -26,7 +26,7 @@ public class SaveButtonSettingsServlet extends HttpServlet {
     private static final String BUTTON_PREFIX = "VK_";
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         clearResults(req);
 
         Arrays.stream(ControlButton.values())

@@ -63,5 +63,9 @@
         <h1>No registration requests</h1>
     </c:if>
 
+    <form action="menu">
+        <button type="submit" style="width:180px;height:60px">BACK</button>
+    </form>
+
 </body>
 </html>

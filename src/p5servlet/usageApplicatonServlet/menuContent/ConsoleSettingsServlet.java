@@ -24,6 +24,7 @@ public class ConsoleSettingsServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         req.setAttribute("keyboard_buttons", buttonService.getKeyboardButtonsArray());
         req.setAttribute("connect_users", userService.getConnectUsers());
 

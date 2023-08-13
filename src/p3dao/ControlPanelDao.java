@@ -37,6 +37,7 @@ public class ControlPanelDao {
     private static final String GET_All_BUTTONS_VALUE_SQL = """
             SELECT button, user_id, user_button
             FROM console_button
+            ORDER BY LENGTH(button), button
             """;
 
     private static final String DELETE_BUTTON_VALUE_SQL = """

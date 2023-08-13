@@ -16,6 +16,9 @@
 
                 <td>
                     <select name="button_up" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_up_value}">
+                            <option>${sessionScope.button_up_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -33,6 +36,9 @@
 
                 <td>
                     <select name="button_a" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_a_value}">
+                            <option>${sessionScope.button_a_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -48,6 +54,9 @@
 
                 <td>
                     <select name="button_b" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_b_value}">
+                            <option>${sessionScope.button_b_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -63,6 +72,9 @@
 
                 <td>
                     <select name="button_c" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_c_value}">
+                            <option>${sessionScope.button_c_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -80,6 +92,9 @@
             <tr>
                 <td>
                     <select name="button_left" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_left_value}">
+                            <option>${sessionScope.button_left_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -95,6 +110,9 @@
 
                 <td>
                     <select name="button_down" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_down_value}">
+                            <option>${sessionScope.button_down_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -110,6 +128,9 @@
 
                 <td>
                     <select name="button_right" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_right_value}">
+                            <option>${sessionScope.button_right_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -125,6 +146,9 @@
 
                 <td>
                     <select name="button_d" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_d_value}  ">
+                            <option>${sessionScope.button_d_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -140,6 +164,9 @@
 
                 <td>
                     <select name="button_e" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_e_value}">
+                            <option>${sessionScope.button_e_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
@@ -154,6 +181,9 @@
                 </td>
                 <td>
                     <select name="button_f" style="width:180px;height:120px">
+                        <c:if test="${not empty sessionScope.button_f_value}">
+                            <option>${sessionScope.button_f_value}</option>
+                        </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">
                             <option>${key_button.name().substring(3)}
                                 <c:if test="${key_button.isUsed() && connect_users.containsKey(key_button.getUserId().get()) &&
