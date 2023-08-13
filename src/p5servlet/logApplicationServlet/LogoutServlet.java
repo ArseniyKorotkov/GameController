@@ -20,8 +20,7 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         service.logoutUser((User) session.getAttribute("user"));
-        session.removeAttribute("user");
-        session.removeAttribute("pass_statement");
+        req.getSession().invalidate();
         resp.sendRedirect("control");
     }
 }

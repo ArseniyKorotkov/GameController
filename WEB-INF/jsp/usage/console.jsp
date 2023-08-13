@@ -12,14 +12,14 @@
                 <td>.</td>
 
                 <td>
-                    <button type="submit" background="navy" name="button_name" value="button_up"
+                    <button type="submit" name="button_name" value="button_up"
                     style="width:360px;height:360px;background-color:${sessionScope.color_up}">
-                        UP
+                        <h1>${sessionScope.button_up_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_up}
+                        ${requestScope.check_up}
                         style="width:42px;height:42px"
                         name="check_up">
                     </td>
@@ -31,12 +31,12 @@
                 <td>
                     <button type="submit" name="button_name" value="button_a"
                     style="width:360px;height:360px;background-color:${sessionScope.color_a}">
-                        BUTTON_A
+                        <h1>${sessionScope.button_a_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_a}
+                        ${requestScope.check_a}
                         style="width:42px;height:42px"
                         name="check_a">
                     </td>
@@ -46,12 +46,12 @@
                 <td>
                     <button type="submit" name="button_name" value="button_b"
                     style="width:360px;height:360px;background-color:${sessionScope.color_b}">
-                        BUTTON_B
+                        <h1>${sessionScope.button_b_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_b}
+                        ${requestScope.check_b}
                         style="width:42px;height:42px"
                         name="check_b">
                     </td>
@@ -60,12 +60,12 @@
                 <td>
                     <button type="submit" name="button_name" value="button_c"
                     style="width:360px;height:360px;background-color:${sessionScope.color_c}">
-                        BUTTON_C
+                        <h1>${sessionScope.button_c_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_c}
+                        ${requestScope.check_c}
                         style="width:42px;height:42px"
                         name="check_c">
                     </td>
@@ -77,12 +77,12 @@
                 <td>
                     <button type="submit" name="button_name" value="button_left"
                     style="width:360px;height:360px;background-color:${sessionScope.color_left}">
-                        LEFT
+                        <h1>${sessionScope.button_left_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_left}
+                        ${requestScope.check_left}
                         style="width:42px;height:42px"
                         name="check_left">
                     </td>
@@ -91,12 +91,12 @@
                 <td>
                     <button type="submit" name="button_name" value="button_down"
                     style="width:360px;height:360px;background-color:${sessionScope.color_down}">
-                        DOWN
+                        <h1>${sessionScope.button_down_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_down}
+                        ${requestScope.check_down}
                         style="width:42px;height:42px"
                         name="check_down">
                     </td>
@@ -105,12 +105,12 @@
                 <td>
                      <button type="submit" name="button_name" value="button_right"
                      style="width:360px;height:360px;background-color:${sessionScope.color_right}">
-                        RIGHT
+                        <h1>${sessionScope.button_right_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_right}
+                        ${requestScope.check_right}
                         style="width:42px;height:42px"
                         name="check_right">
                     </td>
@@ -119,12 +119,12 @@
                 <td>
                     <button type="submit"  name="button_name" value="button_d"
                     style="width:360px;height:360px;background-color:${sessionScope.color_d}">
-                        BUTTON_D
+                        <h1>${sessionScope.button_d_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_d}
+                        ${requestScope.check_d}
                         style="width:42px;height:42px"
                         name="check_d">
                     </td>
@@ -133,12 +133,12 @@
                 <td>
                     <button type="submit"  name="button_name" value="button_e"
                     style="width:360px;height:360px;background-color:${sessionScope.color_e}">
-                        BUTTON_E
+                        <h1>${sessionScope.button_e_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_e}
+                        ${requestScope.check_e}
                         style="width:42px;height:42px"
                         name="check_e">
                     </td>
@@ -147,12 +147,12 @@
                 <td>
                     <button type="submit" name="button_name" value="button_f"
                     style="width:360px;height:360px;background-color:${sessionScope.color_f}">
-                        BUTTON_F
+                        <h1>${sessionScope.button_f_value}</h1>
                     </button>
 
                     <td>
                         <input type="checkBox"
-                        ${sessionScope.check_f}
+                        ${requestScope.check_f}
                         style="width:42px;height:42px"
                         name="check_f">
                     </td>

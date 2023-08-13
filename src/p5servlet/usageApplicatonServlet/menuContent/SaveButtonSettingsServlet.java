@@ -34,6 +34,7 @@ public class SaveButtonSettingsServlet extends HttpServlet {
 
         checkBeforeSend();
 
+        req.getSession().setAttribute("is_old_values_buttons", false);
         req.getSession().setAttribute("answers_message", responseArray);
         resp.sendRedirect("console_settings");
     }
