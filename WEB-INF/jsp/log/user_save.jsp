@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Buttons</title>
+    <title>Game Controller</title>
 </head>
 <body>
 
@@ -38,15 +38,15 @@
                         </td>
 
                         <td>
-                            <input type="checkBox"  style="width:60px;height:60px" name="${user}_save">
+                            <input type="checkBox"  style="width:40px;height:40px" name="${user}_save">
                         </td>
 
                         <td>
-                            <input type="checkBox"  style="width:60px;height:60px" name="${user}_master">
+                            <input type="checkBox"  style="width:40px;height:40px" name="${user}_master">
                         </td>
 
                         <td>
-                            <input type="checkBox" style="width:60px;height:60px"  name="${user}_delete">
+                            <input type="checkBox" style="width:40px;height:40px"  name="${user}_delete">
                         </td>
 
                     </tr>
@@ -63,7 +63,7 @@
         <h1>No registration requests</h1>
     </c:if>
 
-    <form action="menu">
+    <form action="master_menu" method="post">
         <button type="submit" style="width:180px;height:60px">BACK</button>
     </form>
 

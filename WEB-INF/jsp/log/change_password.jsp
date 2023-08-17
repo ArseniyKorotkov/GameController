@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Buttons</title>
+    <title>Game Controller</title>
 </head>
 <body>
 
@@ -40,7 +40,7 @@
 
             <tr>
                 <td>
-                    <button type="submit" style="width:120px;height:60">CHANGE</button>
+                    <button type="submit" style="width:180px;height:60">CHANGE</button>
                 </td>
 
                 <td>
@@ -52,7 +52,7 @@
 
 
     <form action="menu" method="get">
-        <button type="submit" style="width:120px;height:60px">BACK</button>
+        <button type="submit" style="width:180px;height:60px">BACK</button>
     </form>
 
 

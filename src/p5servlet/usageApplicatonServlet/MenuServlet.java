@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import p1util.JspGuide;
 
 import java.io.IOException;
@@ -14,6 +15,10 @@ public class MenuServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        if(session.getAttribute("control_buttons_size") == null) {
+            session.setAttribute("control_buttons_size", 360);
+        }
         req.getRequestDispatcher(JspGuide.to("usage","menu")).forward(req, resp);
     }
 }

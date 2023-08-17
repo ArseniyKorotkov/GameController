@@ -46,6 +46,12 @@ public class ControlPanelDao {
             WHERE button like ?
             """;
 
+    private static final String DELETE_CONSOLE_VALUE_SQL = """
+            UPDATE console_button
+            SET user_id = NULL, user_button= NULL
+            WHERE user_id = ?
+            """;
+
 
     private ControlPanelDao() {
     }
@@ -94,7 +100,7 @@ public class ControlPanelDao {
     public void setButtonValue(KeyboardButtonEntity keyboardButton) {
         try (Connection connection = ConnectorManager.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SET_BUTTON_VALUE_SQL)) {
-            if(keyboardButton.getUserId().isPresent() && keyboardButton.getControlButton().isPresent()) {
+            if (keyboardButton.getUserId().isPresent() && keyboardButton.getControlButton().isPresent()) {
                 preparedStatement.setInt(1, keyboardButton.getUserId().get());
                 preparedStatement.setString(2, keyboardButton.getControlButton().get().name());
                 preparedStatement.setString(3, keyboardButton.name());
@@ -141,6 +147,15 @@ public class ControlPanelDao {
     }
 
 
+    public void deleteConsoleValuesFor(int userId) {
+        try (Connection connection = ConnectorManager.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CONSOLE_VALUE_SQL)) {
+            preparedStatement.setInt(1, userId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     private KeyboardButtonEntity keyBuilder(ResultSet resultSet) throws SQLException {

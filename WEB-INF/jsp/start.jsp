@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Buttons</title>
+    <title>Game Controller</title>
 </head>
 <body>
 
@@ -62,13 +62,13 @@
                 <tr>
                     <td>
                         <form action="/controller/menu" method="get">
-                            <button type="submit" style="width:120px;height:60px">MENU</button>
+                            <button type="submit" style="width:180px;height:60px">MENU</button>
                         </form>
                     </td>
 
                     <td>
                         <form action="/controller/logout" method="post">
-                            <button type="submit" style="width:120px;height:60px">LOGOUT</button>
+                            <button type="submit" style="width:180px;height:60px">LOGOUT</button>
                         </form>
                     </td>
                 </tr>

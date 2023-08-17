@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/change_pass")
 public class PasswordChangerServlet extends HttpServlet {
 
-    private final static UserService service = UserService.getInstance();
+    private final UserService service = UserService.getInstance();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

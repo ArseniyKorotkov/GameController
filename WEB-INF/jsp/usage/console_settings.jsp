@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Buttons</title>
+    <title>Game Controller</title>
 </head>
 <body>
 
@@ -199,14 +199,14 @@
             </tr>
             <tr>
                 <td>
-                    <button type="submit" style="width:120px;height:60px">SAVE</button>
+                    <button type="submit" style="width:180px;height:60px">SAVE</button>
                 </td>
             </tr>
         </table>
     </form>
 
     <form action="menu" method="get">
-        <button type="submit" style="width:120px;height:60px">BACK</button>
+        <button type="submit" style="width:180px;height:60px">BACK</button>
     </form>
     <table>
         <c:forEach var="message" items="${sessionScope.answers_message}">

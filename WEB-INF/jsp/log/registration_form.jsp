@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Buttons</title>
+    <title>Game Controller</title>
 </head>
 <body>
 

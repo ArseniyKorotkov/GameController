@@ -3,19 +3,18 @@ package p4service;
 import p2entity.User;
 import p3dao.UserDao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
 
 public class UserService {
 
     private static final UserService SERVICE = new UserService();
-
     private final UserDao userDao = UserDao.getInstance();
+    private final HashMap<Integer, User> CONNECT_USERS = new HashMap<>();
 
     private UserService() {
     }
-
-    private final HashMap<Integer, User> CONNECT_USERS = new HashMap<>();
 
     public Optional<User> getUser(String name, String pass) {
         return userDao.findUser(name, pass);
@@ -49,8 +48,23 @@ public class UserService {
         userDao.changePass(name, hashNewPass);
     }
 
+    public ArrayList<String> findNamesCanDeleteUsers(String userName) {
+        return userDao.findNamesCanDeleteUsers(userName);
+    }
+
+    public void deleteUserByName(String name) {
+        CONNECT_USERS.remove(getIdByName(name));
+        userDao.deleteUserByName(name);
+    }
+
     public void logoutUser(User user) {
-        CONNECT_USERS.remove(user.getId());
+        if(user != null) {
+            CONNECT_USERS.remove(user.getId());
+        }
+    }
+
+    public int getIdByName(String name) {
+        return userDao.getIdByName(name);
     }
 
     public static UserService getInstance() {

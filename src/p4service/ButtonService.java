@@ -56,6 +56,10 @@ public class ButtonService {
         return responseArray;
     }
 
+    public void deleteConsoleValuesFor(int userId) {
+        controlPanelDao.deleteConsoleValuesFor(userId);
+    }
+
     public Optional<KeyboardButtonEntity> getButtonValue(Integer userId, String controlButton) {
         return controlPanelDao.getButtonValue(userId, ControlButton.valueOf(controlButton));
     }

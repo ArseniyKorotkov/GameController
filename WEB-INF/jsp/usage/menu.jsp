@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>Buttons</title>
+    <title>Game Controller</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
     </form>
 
     <c:if test="${sessionScope.user.isMaster()}">
-        <form action="registration_requests" method="get">
+        <form action="master_menu" method="post">
             <button type="submit" style="width:180px;height:60px">MASTER`S SETTINGS</button>
         </form>
     </c:if>

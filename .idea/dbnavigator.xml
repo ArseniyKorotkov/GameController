@@ -34,6 +34,10 @@ create table console_button (
     unique (user_id, user_button)
 )
 
+SELECT user_name
+FROM console_user
+WHERE user_name NOT IN ('master', ?);
+
 SELECT EXISTS (SELECT id FROM console_user);
 
 INSERT INTO console_button (button) VALUES 
@@ -236,7 +240,10 @@ select * from console_user;
 
 UPDATE console_button
 SET user_id = 1, user_button=3
-WHERE button like 'VK_ENTER';]]></console>
+WHERE button like 'VK_ENTER';
+
+DELETE FROM console_user
+WHERE user_name = 'Ar';]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

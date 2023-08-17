@@ -17,8 +17,10 @@ import java.util.Optional;
 
 @WebFilter({"/console", "/console_settings"})
 public class SettingButtonFilter implements Filter {
+
     private static final HashMap<Integer, HashMap<String, Optional<KeyboardButtonEntity>>> BUTTONS_VALUES = new HashMap<>();
     private final ButtonService service = ButtonService.getInstance();
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpSession session = ((HttpServletRequest) servletRequest).getSession();
