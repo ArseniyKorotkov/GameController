@@ -14,7 +14,7 @@ import p4service.UserService;
 
 import java.io.IOException;
 
-@WebFilter({"/button", "/console", "/menu", "/check_regis", "/delete_account_form",
+@WebFilter({"/button", "/console", "/menu", "/delete_account_form",
 "/delete_account", "/logout", "/master_menu", "/change_pass_form", "/change_pass",
 "/user_save", "/console_settings", "/save_button_settings"})
 public class LoginFilter implements Filter {

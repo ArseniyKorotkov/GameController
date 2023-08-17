@@ -146,7 +146,7 @@
 
                 <td>
                     <select name="button_d" style="width:180px;height:120px">
-                        <c:if test="${not empty sessionScope.button_d_value}  ">
+                        <c:if test="${not empty sessionScope.button_d_value}">
                             <option>${sessionScope.button_d_value}</option>
                         </c:if>
                         <c:forEach var="key_button" items="${requestScope.keyboard_buttons}">

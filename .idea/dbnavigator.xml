@@ -243,7 +243,10 @@ SET user_id = 1, user_button=3
 WHERE button like 'VK_ENTER';
 
 DELETE FROM console_user
-WHERE user_name = 'Ar';]]></console>
+WHERE user_name = 'Ar';
+
+
+SELECT * FROM pg_tables where tablename = 'driver';]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

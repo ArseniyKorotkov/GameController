@@ -12,7 +12,7 @@ import java.io.IOException;
 @WebServlet("/console_buttons_size")
 public class ConsoleButtonsSizeServlet extends HttpServlet {
 
-    private final static int SWITCH_SIZE = 10;
+    private final static int SWITCH_SIZE = 20;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
