@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <form action="/controller/console" method="get">
+    <form action="console" method="get">
         <table>
             <tr>
                 <td>.</td>

@@ -12,7 +12,7 @@
 
         <c:when test="${sessionScope.user == null}">
 
-            <form action="/controller/check_enter" method="post">
+            <form action="check_enter" method="post">
 
                 <table>
                     <tr>
@@ -46,7 +46,7 @@
 
 
             <tr>
-                <form action="/controller/registration_form" method="get">
+                <form action="registration_form" method="get">
                     <button type="submit" style="width:120px;height:60px">REGISTRATION</button>
                 </form>
             </tr>
@@ -61,13 +61,13 @@
 
                 <tr>
                     <td>
-                        <form action="/controller/menu" method="get">
+                        <form action="menu" method="get">
                             <button type="submit" style="width:180px;height:60px">MENU</button>
                         </form>
                     </td>
 
                     <td>
-                        <form action="/controller/logout" method="post">
+                        <form action="logout" method="post">
                             <button type="submit" style="width:180px;height:60px">LOGOUT</button>
                         </form>
                     </td>

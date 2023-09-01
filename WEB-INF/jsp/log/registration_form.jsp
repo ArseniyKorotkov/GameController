@@ -9,7 +9,7 @@
 
 
     <c:if test="${!sessionScope.answer_for_request_log_boolean}">
-        <form action="/controller/check_regis">
+        <form action="check_regis">
 
             <table>
                 <tr>
@@ -44,7 +44,7 @@
 
 
     <c:if test="${requestScope.verdict}">
-        <form action="/controller/control">
+        <form action="control">
           <button type="submit" style="width:180px;height:60px">START PAGE</button>
         </form>
     </c:if>

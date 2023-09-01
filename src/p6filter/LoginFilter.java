@@ -30,7 +30,7 @@ public class LoginFilter implements Filter {
         } else {
             service.logoutUser((User)session.getAttribute("user"));
             session.invalidate();
-            ((HttpServletResponse) servletResponse).sendRedirect("/controller/control");
+            ((HttpServletResponse) servletResponse).sendRedirect("control");
         }
 
     }
